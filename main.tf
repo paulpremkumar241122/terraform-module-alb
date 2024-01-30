@@ -33,3 +33,20 @@ resource "aws_lb" "main" {
 
   tags       = merge({ Name = "${var.name}-${var.env}" }, var.tags)
 }
+
+
+resource "aws_lb_listener" "main" {
+  load_balancer_arn = aws_lb.main.arn
+  port              = var.port
+  protocol          = "HTTP"
+
+  default_action {
+    type = "fixed-response"
+
+    fixed_response {
+      content_type = "text/plain"
+      message_body = "om sai ram"
+      status_code  = "200"
+    }
+  }
+}
