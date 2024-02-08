@@ -4,7 +4,7 @@ variable "load_balancer_type" {}
 variable "env" {}
 variable "vpc_id" {}
 variable "port" {
-  default = 80
+  default = 443
 }
 variable "sg_subnets_cidr" {}
 variable "subnets" {}
